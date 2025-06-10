@@ -1,0 +1,15 @@
+.buttonGroup {
+  --gap-md: 0.6rem;
+  align-items: center;
+  display: grid;
+}
+
+.row {
+  grid-template-columns: repeat(2, minmax(min-content, 1fr));
+  gap: var(--gap-md);
+}
+
+.column {
+  grid-template-columns: repeat(1, minmax(min-content, 1fr));
+  gap: var(--gap-md);
+}

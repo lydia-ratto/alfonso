@@ -1,0 +1,54 @@
+@font-face {
+  font-family: 'Chaparral Pro';
+  src: url('../public/fonts/ChaparralPro-Regular.woff2') format('woff2'),
+       url('../public/fonts/ChaparralPro-Regular.woff') format('woff');
+  font-display: swap;
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Chaparral Pro';
+  src: url('../public/fonts/ChaparralPro-Bold.woff2') format('woff2'),
+       url('../public/fonts/ChaparralPro-Bold.woff') format('woff');
+  font-display: swap;
+  font-style: normal;
+  font-weight: bold;
+}
+
+:root {
+  /* Colour Variables */
+  --strawberry:#FF8675;
+  --hazelnut: #F3E7D3;
+  --chocolate: #988D7B;
+  --cream: #FFF7EA;
+
+  --strawberry-hover: #f26e5d;
+  --chocolate-hover: #8d8271;
+
+  /* Font Family Variables */
+  --font-family-primary: 'Chaparral Pro', serif;
+  --font-family-secondary: 'Source Sans 3', sans-serif;
+
+  /* Font Weight Variables */
+  --font-weight-bold: bold;
+
+  /* Text Transform Variables */
+  --letter-spacing: 0.3rem;
+  --text-transform-capitalize: capitalize;
+  --text-transform-none: none;
+  --text-transform-uppercase: uppercase;
+}
+
+html {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: var(--hazelnut);
+  margin: 0;
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+}
