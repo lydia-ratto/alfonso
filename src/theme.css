@@ -26,11 +26,17 @@
   --strawberry-hover: #f26e5d;
   --chocolate-hover: #8d8271;
 
+  /* Font Colors */
+  --font-color-primary: #5C5C5C;
+  --font-color-secondary: var(--chocolate);
+
   /* Font Family Variables */
   --font-family-primary: 'Chaparral Pro', serif;
   --font-family-secondary: 'Source Sans 3', sans-serif;
 
   /* Font Weight Variables */
+  --font-weight-medium: 500;
+  --font-weight-regular: 400;
   --font-weight-bold: bold;
 
   /* Text Transform Variables */
@@ -38,6 +44,11 @@
   --text-transform-capitalize: capitalize;
   --text-transform-none: none;
   --text-transform-uppercase: uppercase;
+
+  /* Border Radius Variables */
+  --border-radius: 0.25rem;
+  --border-radius-lg: 0.5rem;
+  --border-radius-sm: 0.125rem;
 }
 
 html {
@@ -51,4 +62,15 @@ body {
   background-color: var(--hazelnut);
   margin: 0;
   padding: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-bold);
+  margin: 0;
+}
+p {
+  font-family: var(--font-family-secondary);
+  font-weight: var(--font-weight-regular);
+  margin: 0;
 }

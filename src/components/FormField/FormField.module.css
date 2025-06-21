@@ -1,0 +1,20 @@
+.fieldWrapper{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
+.label {
+    font-family: var(--font-family-secondary);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+    color: var(--font-color-primary);
+  }
+.errorText {
+    color: var(--strawberry);
+    font-family: var(--font-family-secondary);
+    font-weight: var(--font-weight-regular);
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+  }

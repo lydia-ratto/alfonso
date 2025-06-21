@@ -1,6 +1,7 @@
 // import PageContainer from "@/components/PageContainer"
 import Button  from "@/components/Button/Button"
 import ButtonGroup  from "@/components/ButtonGroup/ButtonGroup"
+import EventForm from "@/components/EventsForm/EventsForm"
 
 export default function Home() {
   return (
@@ -15,6 +16,9 @@ export default function Home() {
             <Button variant='primary'>Shops</Button>
             <Button variant='secondary'>Wholesale</Button>
           </ButtonGroup>
+        </section>
+        <section>
+          <EventForm onSubmit={(data) => console.log(data)} />
         </section>
       </main>
     // </PageContainer>

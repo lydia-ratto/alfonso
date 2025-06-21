@@ -1,0 +1,22 @@
+  .input {
+    background-color: var(--cream);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0.75rem;
+    font-family: var(--font-family-secondary);
+    font-weight: var(--font-weight-regular);
+    font-size: 1rem;
+    color: var(--chocolate);
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+  }
+
+  .input::placeholder {
+    color: var(--chocolate);
+    opacity: 0.58;  
+  }
+  .input:focus {
+    outline: 2px solid var(--chocolate);
+    box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+  }
