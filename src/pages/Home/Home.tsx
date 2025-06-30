@@ -1,10 +1,8 @@
-// import PageContainer from "@/components/PageContainer"
 import Button  from "@/components/Button/Button"
 import ButtonGroup  from "@/components/ButtonGroup/ButtonGroup"
 
 export default function Home() {
   return (
-    // <PageContainer>
       <main>
         <section>
           <h1>Authentic Italian gelato</h1>
@@ -17,6 +15,5 @@ export default function Home() {
           </ButtonGroup>
         </section>
       </main>
-    // </PageContainer>
   )
 }

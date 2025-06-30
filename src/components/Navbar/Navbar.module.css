@@ -1,0 +1,203 @@
+/* Base styles for the main navigation bar container */
+:root {
+  --curve-width-ratio: 0.3;
+  --curve-height-ratio: 0.08;
+  --curve-max-width: 350px;
+  --logo-bg-height-ratio: 0.0528;
+  --nav-height-base: 4.5rem;
+  --nav-mobile-height-base: calc(var(--nav-height-base) * 0.66);
+  --nav-background-height-diff: 0.03;
+}
+
+nav {
+  height: var(--nav-height-base);
+  position: relative;
+  width: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+.brandContainer {
+  background-color: var(--hazelnut);
+  border-bottom: 2px solid var(--strawberry);
+  height: var(--nav-height-base);
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+}
+
+/* The curved bottom part and its shadow */
+.brandContainer::after {
+  bottom: -4rem;
+  background-color: var(--hazelnut);
+  border-radius: 0 0 100% 100%;
+  border: 2px solid var(--strawberry);
+  border-top: none;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  content: '';
+  height: 11rem;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 12.5rem;
+  z-index: -1;
+}
+
+.logoBackground {
+  background-color: var(--hazelnut);
+  box-shadow: none;
+  height: calc(var(--nav-height-base) - (var(--nav-height-base) * var(--nav-background-height-diff)));
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  position: absolute;
+  width: 30%;
+  z-index: 3;
+}
+
+.logoContainer {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 1.4rem;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.logo {
+  width: 8.8rem;
+}
+
+.mainNavbarLinks, .menuLinks {
+  a {
+    color: var(--chocolate);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+}
+
+.mainNavbarLinks {
+  font-family: var(--font-family-secondary);
+  font-size: 16px;
+  font-weight: semi-bold;
+}
+
+.menuLinks {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family-primary);
+  font-size: 25px;
+  font-weight: bold;
+  gap: 1.5rem;
+  letter-spacing: var(--letter-spacing);
+  margin-left: 1rem;
+  position: absolute;
+  opacity: 0;       /* Start fully transparent */
+  top: 8vh;
+  transition: visibility 0s linear 0.3s, opacity 0.3s linear;
+  z-index: 3;
+}
+
+.fadeIn {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+}
+
+.menuButtons {
+  position: absolute;
+  top: 85vh;
+}
+
+/* Optional: Media query for responsiveness if the curve needs to change width on smaller screens */
+@media (max-width: 768px) {
+  nav {
+    height: var(--nav-mobile-height-base);
+  }
+  .brandContainer {
+    padding: 0.7rem;
+    height: var(--nav-mobile-height-base);
+    transition: height 0.3s ease-in-out;
+  }
+
+  .brandContainer.open {
+    height: 70vh;
+    transition: height 0.3s ease-in-out;
+  }
+
+  .brandContainer::after {
+    width: 7.9rem;
+    max-width: none;
+    height: 6.8rem;
+    bottom: -2.8rem;
+  }
+
+  .logoBackground {
+    width: 40%;
+    height: calc(var(--nav-mobile-height-base)  - (var(--nav-mobile-height-base) * var(--nav-background-height-diff)));
+    transition: height 0.3s ease-in-out, top 0.3s ease-in-out;
+  }
+
+  .logoBackground.open {
+    height: 69.7vh;
+    transition: height 0.3s ease-in-out, top 0.3s ease-in-out;
+  }
+
+  .logoContainer {
+    top: 1rem;
+    transition: top 0.3s ease-in-out;
+  }
+
+  .logoContainer.open {
+    top: 66.5vh;
+    transition: top 0.3s ease-in-out;
+  }
+
+  .logo {
+    width: 6.1rem;
+  }
+
+  .content {
+    justify-content: space-between;
+  }
+}
+
+/* Layout for the Navbar contents */
+.content {
+  align-items: center;
+  display: flex;
+  height: inherit;
+  padding: 0 0.6rem;
+  position: absolute;
+  width: inherit;
+  z-index: 3;
+}
+
+.cart-icon img {
+  width: 28px; /* Adjust icon size */
+  height: auto;
+  color: #8c786a; /* If it's an SVG and you want to color it via CSS */
+}
+
+.menu-icon {
+  width: 30px;
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  cursor: pointer;
+}
+
+.menu-icon span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #8c786a;
+  border-radius: 2px;
+}
