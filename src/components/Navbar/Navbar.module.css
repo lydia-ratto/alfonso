@@ -11,7 +11,7 @@
 
 nav {
   height: var(--nav-height-base);
-  position: relative;
+  position: fixed;
   width: 100%;
 }
 
@@ -58,50 +58,72 @@ nav {
 }
 
 .logoContainer {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 1.4rem;
-  z-index: 15;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  padding-bottom: 20px;
+  left: 50%;
+  margin-bottom: 20px;
+  position: absolute;
+  transform: translateX(-50%);
+  top: 1.4rem;
+  z-index: 10;
 }
 
 .logo {
+  background-color: var(--hazelnut);
   width: 8.8rem;
 }
 
-.mainNavbarLinks, .menuLinks {
-  a {
-    color: var(--chocolate);
-    text-decoration: none;
-    text-transform: uppercase;
-  }
+.linksContainer {
+  align-items: center;
+  display: flex;
+  height: inherit;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  position: absolute;
+  width: inherit;
+  z-index: 3;
 }
 
-.mainNavbarLinks {
-  font-family: var(--font-family-secondary);
-  font-size: 16px;
-  font-weight: semi-bold;
+.linksLeft, .linksRight {
+  display: flex;
+  gap: 1.5rem;
 }
 
 .menuLinks {
   display: flex;
   flex-direction: column;
-  font-family: var(--font-family-primary);
-  font-size: 25px;
-  font-weight: bold;
   gap: 1.5rem;
   letter-spacing: var(--letter-spacing);
   margin-left: 1rem;
   position: absolute;
-  opacity: 0;       /* Start fully transparent */
+  opacity: 0;
   top: 8vh;
   transition: visibility 0s linear 0.3s, opacity 0.3s linear;
   z-index: 3;
+}
+
+.link, .menuLinks > a {
+  color: var(--chocolate);
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: semi-bold;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.link {
+  font-family: var(--font-family-secondary);
+}
+
+.menuButtons {
+  left: 50%;
+  opacity: 0;
+  position: absolute;
+  top: 82vh;
+  transition: visibility 0s linear 0.3s, opacity 0.3s linear;
+  transform: translateX(-50%);
 }
 
 .fadeIn {
@@ -110,12 +132,29 @@ nav {
   transition-delay: 0s;
 }
 
-.menuButtons {
-  position: absolute;
-  top: 85vh;
+.cart-icon img {
+  width: 28px;
+  height: auto;
+  color: var(--chocolate)
 }
 
-/* Optional: Media query for responsiveness if the curve needs to change width on smaller screens */
+.menu-icon {
+  width: 30px;
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  cursor: pointer;
+}
+
+.menu-icon span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--chocolate);
+  border-radius: 2px;
+}
+
 @media (max-width: 768px) {
   nav {
     height: var(--nav-mobile-height-base);
@@ -150,54 +189,23 @@ nav {
   }
 
   .logoContainer {
-    top: 1rem;
+    top: 0.8rem;
     transition: top 0.3s ease-in-out;
   }
 
   .logoContainer.open {
-    top: 66.5vh;
+    top: 65.2vh;
     transition: top 0.3s ease-in-out;
   }
 
   .logo {
+    background-color: transparent;
     width: 6.1rem;
   }
 
-  .content {
-    justify-content: space-between;
+  .menuLinks > a {
+    font-family: var(--font-family-primary);
+    font-size: 21px;
+    font-weight: bold;
   }
-}
-
-/* Layout for the Navbar contents */
-.content {
-  align-items: center;
-  display: flex;
-  height: inherit;
-  padding: 0 0.6rem;
-  position: absolute;
-  width: inherit;
-  z-index: 3;
-}
-
-.cart-icon img {
-  width: 28px; /* Adjust icon size */
-  height: auto;
-  color: #8c786a; /* If it's an SVG and you want to color it via CSS */
-}
-
-.menu-icon {
-  width: 30px;
-  height: 25px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  cursor: pointer;
-}
-
-.menu-icon span {
-  display: block;
-  width: 100%;
-  height: 3px;
-  background-color: #8c786a;
-  border-radius: 2px;
 }

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import styles from './Navbar.module.css';
 import alfonsoLogo from '@/assets/alfonso-logo-transparent.png';
 import { Link } from 'react-router-dom';
+import appStyles from '@/App.module.css'
 import MenuIcon from '@/components/MenuIcon/MenuIcon';
 import ButtonGroup from '@/components/ButtonGroup/ButtonGroup';
 import Button from '@/components/Button/Button';
@@ -43,50 +44,60 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, isMobileView, toggleMenu })
             ${styles.logoBackground}
             ${isMenuOpen ? styles.open : ''}
           `} />
-          <div className={`
-            ${styles.logoContainer}
-            ${isMenuOpen ? styles.open : ''}
-          `}>
-            <Link to="/">
-              <img src={alfonsoLogo} alt="Alfonso Gelateria logo" className={styles.logo} />
-            </Link>
-          </div>
+          <Link to="/">
+            <div className={`
+              ${styles.logoContainer}
+              ${isMenuOpen ? styles.open : ''}
+            `}>
+                <img src={alfonsoLogo} alt="Alfonso Gelateria logo" className={styles.logo} />
+            </div>
+          </Link>
           {isMobileView && isMenuOpen
-            ? <div>
-              <div className={`${styles.menuLinks} primaryText ${showMenuContent ? styles.fadeIn : ''}`}>
-                <Link to="/our-gelato">Our gelato</Link>
-                <Link to="/about">About us</Link>
-                <Link to="/wholesale">Wholesale</Link>
-                <Link to="/contact">Contact us</Link>
-              </div>
-
+          ? <div className={`${styles.menuLinks} primaryText ${showMenuContent ? styles.fadeIn : ''}`}>
+              <Link to="/our-gelato">Our gelato</Link>
+              <Link to="/about">About us</Link>
+              <Link to="/wholesale">Wholesale</Link>
+              <Link to="/contact">Contact us</Link>
             </div>
             : ''
           }
         </div>
-        {isMobileView ?
-          <div className={`${styles.content}`}>
+        {isMobileView
+        ? <div className={`${styles.linksContainer}`}>
             {/* Burger menu and limited links */}
             <div className="left">
               <MenuIcon isOpen={isMenuOpen} onClick={toggleMenu}/>
             </div>
-            <div className={styles.mainNavbarLinks}>
-              <Link to="/find-us">Find us</Link>
+            <div className={styles.linksRight}>
+              <Link to="/find-us" className={styles.link}>Find us</Link>
               {/* <CartIcon /> */}
             </div>
           </div>
-          : <div className={`${styles.content} ${styles.mainNavbarLinks}`}>
-            <Link to="/our-gelato">Our gelato</Link>
-            <Link to="/about">About</Link>
-            <Link to="/wholesale">Wholesale</Link>
-            <Link to="/">Home</Link>
-            <Link to="/contact">Contact us</Link>
+        : <div className={styles.linksContainer}>
+            <div className={styles.linksLeft}>
+              <Link to="/our-gelato" className={styles.link}>Our gelato</Link>
+              <Link to="/about" className={styles.link}>About</Link>
+            </div>
+            <div className={styles.linksRight}>
+              <Link to="/wholesale" className={styles.link}>Wholesale</Link>
+              <Link to="/contact" className={styles.link}>Contact us</Link>
+            </div>
           </div>
         }
-        {isMobileView ?
-          <ButtonGroup className={styles.menuButtons}>
-            <Button>Find us</Button>
-            <Button>Gift voucher</Button>
+        {isMobileView && isMenuOpen ?
+          <ButtonGroup
+              direction='row'
+              className={
+                `${styles.menuButtons}
+                ${showMenuContent ? styles.fadeIn : ''}
+                ${appStyles.padding}`}>
+            <Button to="/shops">Find us</Button>
+            <Button
+              variant='secondary'
+              to='/gift-form'
+            >
+              Voucher
+            </Button>
           </ButtonGroup>
         : ''
         }
