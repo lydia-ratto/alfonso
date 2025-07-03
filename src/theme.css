@@ -34,7 +34,7 @@
   --font-weight-bold: bold;
 
   /* Text Transform Variables */
-  --letter-spacing: 0.3rem;
+  --letter-spacing: 0.5em;
   --text-transform-capitalize: capitalize;
   --text-transform-none: none;
   --text-transform-uppercase: uppercase;
@@ -50,5 +50,10 @@ html {
 body {
   background-color: var(--hazelnut);
   margin: 0;
-  padding: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.primaryText {
+  font-family: var(--font-family-primary);
+  text-transform: var(--text-transform-uppercase);
+  color: var(--chocolate)
 }

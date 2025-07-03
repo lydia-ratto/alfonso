@@ -2,6 +2,7 @@
   --gap-md: 0.6rem;
   align-items: center;
   display: grid;
+  max-width: 30rem;
 }
 
 .row {
